@@ -1,0 +1,182 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: lightblue;
+}
+
+.board {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column-reverse;
+	flex-wrap: wrap;
+}
+
+.cell {
+	border: solid 1px #c97d33;
+}
+
+.white {
+	background: #e3a152;
+}
+
+.black {
+	background: #97270a;
+}
+
+/*--------------Фигуры------------------*/
+
+
+.blackPawn,
+.blackKing,
+.blackQueen,
+.blackRook,
+.blackBishop,
+.blackKnight,
+.whitePawn,
+.whiteKing,
+.whiteQueen,
+.whiteRook,
+.whiteBishop,
+.whiteKnight {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.blackPawn,
+.blackKing,
+.blackQueen,
+.blackRook,
+.blackBishop,
+.blackKnight {
+	color: black;
+}
+
+.whitePawn,
+.whiteKing,
+.whiteQueen,
+.whiteRook,
+.whiteBishop,
+.whiteKnight {
+	/*Опционально, по мне так лучше*/
+	color: white;
+}
+
+
+
+.whitePawn:before {
+	content: "♙";
+}
+
+.whiteKing:before {
+	content: "♔";
+}
+
+.whiteQueen:before {
+	content: "♕";
+}
+
+.whiteRook:before {
+	content: "♖";
+}
+
+.whiteBishop:before {
+	content: "♗";
+}
+
+.whiteKnight:before {
+	content: "♘";
+}
+
+
+.blackPawn:before {
+	content: "♟";
+}
+
+.blackKing:before {
+	content: "♚";
+}
+
+.blackQueen:before {
+	content: "♛";
+}
+
+.blackRook:before {
+	content: "♜";
+}
+
+.blackBishop:before {
+	content: "♝";
+}
+
+.blackKnight:before {
+	content: "♞";
+}
+
+
+
+
+
+
+
+/*доска всегда размера минимального размера окна(ширины или высоты)*/
+@media screen and (orientation: landscape) {
+	.board {
+		width: 100vh;
+		height: 100vh;
+	}
+
+	.cell {
+		height: calc(100vh / 8);
+		width: calc(100vh / 8);
+
+	}
+
+	.blackPawn,
+	.blackKing,
+	.blackQueen,
+	.blackRook,
+	.blackBishop,
+	.blackKnight,
+	.whitePawn,
+	.whiteKing,
+	.whiteQueen,
+	.whiteRook,
+	.whiteBishop,
+	.whiteKnight {
+		font-size: 11vh;
+	}
+}
+
+@media screen and (orientation: portrait) {
+	.board {
+		width: 100vw;
+		height: 100vw;
+	}
+
+	.cell {
+		height: calc(100vw / 8);
+		width: calc(100vw / 8);
+
+	}
+	.blackPawn,
+	.blackKing,
+	.blackQueen,
+	.blackRook,
+	.blackBishop,
+	.blackKnight,
+	.whitePawn,
+	.whiteKing,
+	.whiteQueen,
+	.whiteRook,
+	.whiteBishop,
+	.whiteKnight {
+		font-size: 11vw;
+	}
+}
