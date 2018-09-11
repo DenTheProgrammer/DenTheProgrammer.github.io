@@ -63,6 +63,12 @@ function setStarnPosition() {
 	//короли
 	document.querySelector(".E1").classList.add("whiteKing");
 	document.querySelector(".E8").classList.add("blackKing");
+	//пустые клетки
+	for(i=1;i<9;i++){
+		for(j=3;j<7;j++){
+			document.getElementsByClassName(letters[i] + j)[0].classList.add("empty");
+		}
+	}
 }
 
 setStarnPosition();
