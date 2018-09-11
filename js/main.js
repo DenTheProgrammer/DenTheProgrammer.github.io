@@ -77,16 +77,14 @@ var active;
 var turn = "begin";
 for (i = 0; i < 64; i++) {
 	document.querySelectorAll(".cell")[i].addEventListener("click", function () {
-		if (turn === "begin") {
-//			active = this.classList[3];
+		if (turn === "begin" && (this.classList[3] !== "empty")) {
 			active = this;
-//			this.classList.replace(active,"empty");
 			this.classList.add("highlighted");
 			turn = "end";
 		} else if (turn === "end") {
 			active.classList.remove("highlighted");
 			this.classList.replace(this.classList[3], active.classList[3]);
-			active.classList.replace(active.classList[3],"empty");
+			active.classList.replace(active.classList[3], "empty");
 			turn = "begin";
 		}
 	})
