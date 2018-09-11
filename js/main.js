@@ -82,10 +82,12 @@ for (i = 0; i < 64; i++) {
 			this.classList.add("highlighted");
 			turn = "end";
 		} else if (turn === "end") {
-			active.classList.remove("highlighted");
-			this.classList.replace(this.classList[3], active.classList[3]);
-			active.classList.replace(active.classList[3], "empty");
-			turn = "begin";
+			if (this !== active) {
+				active.classList.remove("highlighted");
+				this.classList.replace(this.classList[3], active.classList[3]);
+				active.classList.replace(active.classList[3], "empty");
+				turn = "begin";
+			}
 		}
 	})
 }
