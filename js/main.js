@@ -64,8 +64,8 @@ function setStarnPosition() {
 	document.querySelector(".E1").classList.add("whiteKing");
 	document.querySelector(".E8").classList.add("blackKing");
 	//пустые клетки
-	for(i=1;i<9;i++){
-		for(j=3;j<7;j++){
+	for (i = 1; i < 9; i++) {
+		for (j = 3; j < 7; j++) {
 			document.getElementsByClassName(letters[i] + j)[0].classList.add("empty");
 		}
 	}
@@ -78,15 +78,15 @@ var turn = "begin";
 for (i = 0; i < 64; i++) {
 	document.querySelectorAll(".cell")[i].addEventListener("click", function () {
 		if (turn === "begin") {
-			active = this.classList[3];
-			this.classList.remove(active);
+//			active = this.classList[3];
+			active = this;
+//			this.classList.replace(active,"empty");
+			this.classList.add("highlighted");
 			turn = "end";
 		} else if (turn === "end") {
-			if (this.classList[3] === undefined) {
-				this.classList.add(active);
-			} else {
-				this.classList.replace(this.classList[3], active);
-			}
+			active.classList.remove("highlighted");
+			this.classList.replace(this.classList[3], active.classList[3]);
+			active.classList.replace(active.classList[3],"empty");
 			turn = "begin";
 		}
 	})
