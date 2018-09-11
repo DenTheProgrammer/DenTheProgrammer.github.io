@@ -83,11 +83,11 @@ for (i = 0; i < 64; i++) {
 			turn = "end";
 		} else if (turn === "end") {
 			if (this !== active) {
-				active.classList.remove("highlighted");
 				this.classList.replace(this.classList[3], active.classList[3]);
 				active.classList.replace(active.classList[3], "empty");
-				turn = "begin";
 			}
+			turn = "begin";
+			active.classList.remove("highlighted");
 		}
 	})
 }
