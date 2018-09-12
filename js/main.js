@@ -82,7 +82,7 @@ for (i = 0; i < 64; i++) {
 			this.classList.add("highlighted");
 			turn = "end";
 		} else if (turn === "end") {
-			if (this !== active) {
+			if (this.classList[3][0] !== active.classList[3][0]) {
 				this.classList.replace(this.classList[3], active.classList[3]);
 				active.classList.replace(active.classList[3], "empty");
 			}
