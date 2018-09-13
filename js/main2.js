@@ -73,21 +73,39 @@ function setStarnPosition() {
 
 setStarnPosition();
 
+//var active;
+//var turn = "begin";
+//for (i = 0; i < 64; i++) {
+//	document.querySelectorAll(".cell")[i].addEventListener("click", function () {
+//		if (turn === "begin" && (this.classList[3] !== "empty")) {
+//			active = this;
+//			this.classList.add("highlighted");
+//			turn = "end";
+//		} else if (turn === "end") {
+//			if (this.classList[3][0] !== active.classList[3][0]) {
+//				this.classList.replace(this.classList[3], active.classList[3]);
+//				active.classList.replace(active.classList[3], "empty");
+//			}
+//			turn = "begin";
+//			active.classList.remove("highlighted");
+//		}
+//	})
+//}
+
 var active;
 var turn = "begin";
-for (i = 0; i < 64; i++) {
-	document.querySelectorAll(".cell")[i].addEventListener("click", function () {
-		if (turn === "begin" && (this.classList[3] !== "empty")) {
-			active = this;
-			this.classList.add("highlighted");
-			turn = "end";
-		} else if (turn === "end") {
-			if (this.classList[3][0] !== active.classList[3][0]) {
-				this.classList.replace(this.classList[3], active.classList[3]);
-				active.classList.replace(active.classList[3], "empty");
-			}
-			turn = "begin";
-			active.classList.remove("highlighted");
+
+document.querySelector(".board").addEventListener("click", function (e) {
+	if (turn === "begin" && (e.target.classList[3] !== "empty")) {
+		active = e.target;
+		e.target.classList.add("highlighted");
+		turn = "end";
+	} else if (turn === "end") {
+		if (e.target.classList[3][0] !== active.classList[3][0]) {
+			e.target.classList.replace(e.target.classList[3], active.classList[3]);
+			active.classList.replace(active.classList[3], "empty");
 		}
-	})
-}
+		turn = "begin";
+		active.classList.remove("highlighted");
+	}
+})
